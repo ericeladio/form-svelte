@@ -1,0 +1,25 @@
+---
+import Header from "../components/Header.svelte"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body  class="bg-LightBlue  grid place-items-center h-screen">
+		<Header client:load/>
+	</body>
+</html>
+<style>
+	body{
+		 src: url('/fonts/Ubuntu-Regular.ttf');
+		 src: url('/fonts/Ubuntu-Bold.ttf');
+		 src: url('/fonts/Ubuntu-Medium.ttf');
+		 font-family: Ubuntut-regular;
+		 
+	}
+</style>
