@@ -7,30 +7,35 @@
     let stateForm = 1;
     let buttonName = "Next step";
 
-    const handleClick = () => {
-        if (stateForm >= 5) {
-            console.log("test");
-        } else {
-            stateForm = stateForm + 1;
-        }
-        if (stateForm === 5) {
+ 
+
+    const cliker = (e) => {
+        stateForm = e.detail;
+        
+        if (e.detail === 4) {
             buttonName = "Send";
+        }
+
+        if (e.detail === 5) {
+            alert("Thanks for your support!");
         }
     };
 </script>
 
-<section class="  w-[900px] rounded-md bg-white mx-auto">
+<section class="w-[900px] rounded-md bg-white mx-auto">
     <div class="flex h-[600px]">
         <aside
             class=" bg-sidebar-mobile bg-no-repeat bg-cover w-1/3 m-6 rounded-md md:bg-sidebar-desktop"
         >
-            <Steps {steps} />
+            <Steps {steps} {stateForm} />
         </aside>
         <div class="w-2/3">
             <Form
-                on:click={handleClick}
+                
                 {buttonName}
                 info={cuestion[stateForm - 1]}
+                {stateForm}
+                on:clicker={cliker}
             >
                 {#if stateForm === 1}
                     <CustomInput {inputs} />

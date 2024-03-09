@@ -1,6 +1,7 @@
 <script>
     export let items;
     export let group;
+    let activeName = ''
 </script>
 
 <div class="flex justify-between">
@@ -12,9 +13,11 @@
             name={group}
             value={item.name}
         />
-        <label
+        <label 
+            class:active={ activeName === item.name }
             class="rounded-md py-3 px-4 border-2 border-gray-500 w-[140px] h-[150px] hover:bg-LightBlue hover:cursor-pointer hover:border-blue-500"
             for={item.name}
+            on:click={() => (activeName = item.name)}
         >
             <div class="flex flex-col h-full justify-between">
                 <img
@@ -30,3 +33,10 @@
         </label>
     {/each}
 </div>
+
+<style>
+    .active {
+        border: 2px solid blue;
+        background-color: #ADD8E6 ;
+    }
+</style>
