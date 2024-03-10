@@ -8,16 +8,16 @@
 <div>
     <div>
         <di>
-            <h3>{info.seletedPlan}</h3>
+            <h3>{info.seletedPlan.split(',')[0]}</h3>
             <button on:click={() => dispatch("change", stateForm = 2)} >change</button>
         </di>
-        <span>price</span>
+        <span>{info.seletedPlan.split(',')[1]}</span>
     </div>
     <div>
         {#each info.complements as complement }
             <div>
-                <h2>{complement}</h2>
-                <span>price</span>
+                <h2>{complement.split(',')[0]}</h2>
+                <span>{complement.split(',')[1]}</span>
             </div>
         {/each}
     </div>
