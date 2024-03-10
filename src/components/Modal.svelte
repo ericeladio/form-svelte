@@ -1,13 +1,13 @@
 <script>
-    import { steps, cuestion, inputs, items } from "../info.js";
+    import { steps, cuestion, inputs, items, checks } from "../info.js";
     import Steps from "./Steps.svelte";
     import Form from "./Form.svelte";
     import CustomInput from "./CustomInput.svelte";
     import CustomRadio from "./CustomRadio.svelte";
+    import CustomCheckBox from "./CustomCheckBox.svelte";
+    
     let stateForm = 1;
     let buttonName = "Next step";
-
- 
 
     const cliker = (e) => {
         stateForm = e.detail;
@@ -42,10 +42,7 @@
                 {:else if stateForm === 2}
                     <CustomRadio group="plan" {items} />
                 {:else if stateForm === 3}
-                    <h1>Personal info</h1>
-                    <p>
-                        {stateForm}
-                    </p>
+                   <CustomCheckBox {checks} />
                 {:else if stateForm === 4}
                     <h1>Personal info</h1>
                     <p>

@@ -4,7 +4,7 @@
     let activeName = ''
 </script>
 
-<div class="flex justify-between">
+<div class="flex justify-between items-center h-[400px]">
     {#each items as item}
         <input
             class="hidden"
