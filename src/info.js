@@ -23,6 +23,7 @@ export const cuestion = [
         title: "Finishing up",
         description: "Double-check everything looks OK before confirming.",
     },
+
 ];
 
 export const inputs = [

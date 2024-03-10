@@ -1,6 +1,7 @@
 <script>
     export let items;
     export let group;
+    export let plans
     let activeName = ''
 </script>
 
@@ -12,6 +13,7 @@
             id={item.name}
             name={group}
             value={item.name}
+            bind:group={plans['seletedPlan']}
         />
         <label 
             class:active={ activeName === item.name }

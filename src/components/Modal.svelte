@@ -5,9 +5,13 @@
     import CustomInput from "./CustomInput.svelte";
     import CustomRadio from "./CustomRadio.svelte";
     import CustomCheckBox from "./CustomCheckBox.svelte";
-    
+    import SendView from "./SendView.svelte";
+
     let stateForm = 1;
     let buttonName = "Next step";
+    let plans = {'Name': "", 'Email Address': "", 'Phone Number': "", 'seletedPlan': "", 'complements': []};
+
+
 
     const cliker = (e) => {
         stateForm = e.detail;
@@ -19,6 +23,11 @@
         if (e.detail === 5) {
             alert("Thanks for your support!");
         }
+        console.log(plans)
+    };
+
+    const change = (e) => {
+        stateForm = e.detail;
     };
 </script>
 
@@ -38,21 +47,15 @@
                 on:clicker={cliker}
             >
                 {#if stateForm === 1}
-                    <CustomInput {inputs} />
+                    <CustomInput  bind:plans {inputs} />
                 {:else if stateForm === 2}
-                    <CustomRadio group="plan" {items} />
+                    <CustomRadio bind:plans group="plan" {items} />
                 {:else if stateForm === 3}
-                   <CustomCheckBox {checks} />
+                   <CustomCheckBox  bind:plans {checks} />
                 {:else if stateForm === 4}
-                    <h1>Personal info</h1>
-                    <p>
-                        {stateForm}
-                    </p>
+                    <SendView info={plans}  on:change={change} {stateForm}/>
                 {:else if stateForm === 5}
                     <h1>Personal info</h1>
-                    <p>
-                        {stateForm}
-                    </p>
                 {/if}
             </Form>
         </div>
