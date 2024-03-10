@@ -1,12 +1,15 @@
 <script>
     export let checks;
-    let activeName = [];
+     export let  plans
+    let activeName = []
     const handler = (name) => {
         if (activeName.includes(name)) {
             activeName = activeName.filter((item) => item !== name);
         } else {
             activeName = [...activeName, name];
         }
+
+        plans['complements'] = activeName
     };
 </script>
 
