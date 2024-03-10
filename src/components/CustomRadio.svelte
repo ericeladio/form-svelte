@@ -1,26 +1,23 @@
 <script>
     export let items;
     export let group;
-    export let plans
-    let activeName = ''
+    export let plans;
 </script>
 
 <div class="flex justify-between items-center h-[400px]">
     {#each items as item}
-        <input
-            class="hidden"
-            type="radio"
-            id={item.name}
-            name={group}
-            value={item.name}
-            bind:group={plans['seletedPlan']}
-        />
-        <label 
-            class:active={ activeName === item.name }
+        <label
+            class:active={plans["seletedPlan"].split(',')[0] === item.name}
             class="rounded-md py-3 px-4 border-2 border-gray-500 w-[140px] h-[150px] hover:bg-LightBlue hover:cursor-pointer hover:border-blue-500"
-            for={item.name}
-            on:click={() => (activeName = item.name)}
         >
+            <input
+                class="hidden"
+                type="radio"
+                id={item.name}
+                name={group}
+                value={item.name + "," + item.price}
+                bind:group={plans["seletedPlan"]}
+            />
             <div class="flex flex-col h-full justify-between">
                 <img
                     class="w-10 h-10"
@@ -39,6 +36,6 @@
 <style>
     .active {
         border: 2px solid blue;
-        background-color: #ADD8E6 ;
+        background-color: #add8e6;
     }
 </style>
