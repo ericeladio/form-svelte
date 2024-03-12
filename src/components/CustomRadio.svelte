@@ -26,7 +26,7 @@
                 />
                 <div>
                     <h3 class="text-blue-950 font-bold">{item.name}</h3>
-                    <p class=" text-xs">{item.price}</p>
+                    <p class=" text-xs">${item.price}/mo</p>
                 </div>
             </div>
         </label>

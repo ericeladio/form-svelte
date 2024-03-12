@@ -25,7 +25,7 @@
                     <h3 class="text-blue-950 font-bold">{check.name}</h3>
                     <span class="">{check.description}</span>
                 </div>
-                <span class="text-blue-950">{check.price}</span>
+                <span class="text-blue-950">+${check.price}/mo</span>
             </div>
         </label>
     {/each}
